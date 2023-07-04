@@ -299,6 +299,7 @@
     // Exercie : à l'aide d'une boucle while, afficher un sélecteur avec les années depuis 1920 jusqu'à 2020
 
     // on peut afficher ce qu'on veut, du texte, du html
+   
     echo '<select>';
     $i= 1920;
     while($i<=2020){
@@ -314,29 +315,85 @@
     ?>
 
 
-    <select name="" id="">
-    <?php
-    for ($i= 1920; $i <=2020; $i++){
-        ?>
-        <option value=""></option>
-        <?php
-    }
-
-    ?>
-    </select>
-
-
-
     <select name="" id="">;
         <?php 
         for ($i= 1920; $i <= 2020; $i++) {
         ?>
-        <option value="<?= $i; ?>" <?=$i; ?></option>           
+            <option value="<?= $i; ?>"> <?= $i; ?></option>           
         <?php
         }
         ?>
     </select>
-    
+
+    <?php
+        $animals = [
+            'chat','chien','lapin','cheval','hamster'
+        ];
+
+        for($i=0; $i<count($animals); $i++){
+            echo $animals[$i] . '<br>';
+        }
+
+        //count() est une fonction qui nous permet de compter le nombre de tours
+        // Boucle for pour faire un compteur
+
+    //-----------------------------------------------------
+    echo '<h3>La bouche foreach ()</h3>';
+    //----------------------------------------------------
+
+        // Boucle foreach()
+        // on lui donne le tableau 
+        // as pour lui dire de mettre chaque ligne (case) du tableau dans une nouvelle variable
+        // Boucle foreach() pour les utiliser avec les tableaux associatifs
+        foreach($animals as $animal){
+            echo $animal . '<br>';
+        }
+
+
+        //creer un tableau associatif voiture
+        //couleur => jaune modele =>bmw annee =>2018 
+        /*
+            $user = [
+            'prenom'=>'rachid',
+            'nom'=>'Edjekouane',
+            'age'=> 40, 
+            'telephone'=> '06 56 87 45 36'
+        ];
+        */
+
+        $voiture = [
+            'couleur' => 'jaune',
+            'modele' => 'bmw',
+            'annee' => 2018
+        ];
+
+        foreach($voiture as $key => $criteria){
+            echo $key . ' : ' . $criteria .'<br>';
+        }
+
+       //-----------------------------------------------------
+       echo '<h2>Les fonctions prédéfinies</h2>';
+       //----------------------------------------------------  
+       
+       echo substr('Bonjour, je m\'appelle Rachid. Je suis formateur', 0, 10) . '<br>';
+       //il prend plusieurs paramètres
+       // on peut lui passer une chaîne de caractères
+       //paramètre 1 chaîne de caractère, paramètre 2 indice à partir de quelle case il démarre,
+       // paramètre 3 le nombre de carctères à extraire
+       // permet d'extraire une chaîne de caractères
+       //ex on va avoir besoin d'extraire une soustraction de description (livre, film, etc.) pour avoir des cards homogènes sur le site
+
+       // declarer une variable description
+       // un extrait
+       // extraire les 100 premiers caractères suivis de 3 petits points
+
+        $description = 'Livio Squirell, capitaine de vaisseau intrépide, purge une peine de réclusion à perpétuité pour des meurtres qu\'il a toujours niés. Jusqu\'au jour où le gouvernement lui propose, en échange de sa liberté, de prendre part à une expédition vers la galaxie du Triangle où des signes d\'une activité intelligente ont été détectés. Mais le voyage s\'annonce périlleux : les neuf vaisseaux ayant précédemment tenté l\'aventure ont mystérieusement disparu... Pourquoi le capitaine prévoit-il alors de prendre tous les risques, en effectuant des bonds spatiotemporels jamais tentés ?';
+        echo substr ($description, 0, 100) . '...';
+       
+
+
+    ?>
+
 
 
 
