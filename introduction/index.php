@@ -376,6 +376,7 @@
        //----------------------------------------------------  
        
        echo substr('Bonjour, je m\'appelle Rachid. Je suis formateur', 0, 10) . '<br>';
+       //extrait un bout de la chaîne de caractères
        //il prend plusieurs paramètres
        // on peut lui passer une chaîne de caractères
        //paramètre 1 chaîne de caractère, paramètre 2 indice à partir de quelle case il démarre,
@@ -388,10 +389,118 @@
        // extraire les 100 premiers caractères suivis de 3 petits points
 
         $description = 'Livio Squirell, capitaine de vaisseau intrépide, purge une peine de réclusion à perpétuité pour des meurtres qu\'il a toujours niés. Jusqu\'au jour où le gouvernement lui propose, en échange de sa liberté, de prendre part à une expédition vers la galaxie du Triangle où des signes d\'une activité intelligente ont été détectés. Mais le voyage s\'annonce périlleux : les neuf vaisseaux ayant précédemment tenté l\'aventure ont mystérieusement disparu... Pourquoi le capitaine prévoit-il alors de prendre tous les risques, en effectuant des bonds spatiotemporels jamais tentés ?';
-        echo substr ($description, 0, 100) . '...';
+        //remplacer par des doubles guillemets pour éviter les erreurs avec les guillemets simples
+        $newDesc = substr ($description, 0, 100);
+        echo $newDesc . '... <br>';
+
+        //echo substr ($description, 0, 100) . '...';
        
+        $message = '    edjek@gmail.com     ';
+        echo $message;
+        echo trim($message);
+        //supprimer les espaces de début et de fin avant d'enregistrer en BDD
+        //trim () supprime les espaces au début et à la fin de la chaîne de caractères
 
 
+        //-----------------------------------------------------
+       echo '<h2>Les fonctions utilisateurs</h2>';
+       //------------------------------------------------------
+
+       //on déclare une fonction avec le mot clé function suivi du nom de la fonction puis d'une paire de parenthèses()
+       // on décide de ce que fait la fonction
+       // pour exécuter une fonction on l'appelle par son nom suivi d'une paire de parenthèses
+       function separation (){
+            echo '<br>';
+       }
+
+       echo 'coucou';
+       separation();
+       echo 'coucou';
+       separation();
+
+       //fonction avec paramètres et return
+       function bonjour($name){
+            return "Bonjour, je m'appelle $name";
+       }
+       // cette variable n'a rien à voir avec celle du dessus
+       $name = 'Rachid';
+       $res = bonjour($name);
+       echo $res;
+
+       separation();
+
+       // il faut récupérer dans une variable ce que retourne ma fonction
+
+       //Ecrire une fonction factureEssence qui calcule le coût total de votre facture en fonction du nombre de litres d'essence que vous indiquez lors de l'appel de la fonction
+       // Le prix du litre est 1.9
+       // Cette fonction retourne la phrase "Votre facture est de X euros pour Y litres d'essence" ou X et Y sont des variables
+       // Afficher le resultat de la fonction
+        
+       
+       function factureEssence($litres){
+            $res = $litres * 1.9; 
+            return "Votre facture est de $res euros pour $litres litres d'essence"; 
+       }          
+            $test = factureEssence(30);
+            echo $test;   
+       
+    //-----------------------------------------------------
+    echo '<h2>Les super globables</h2>';
+    //------------------------------------------------------
+    
+
+    //var_dump($_SERVER);
+
+    function debbug($var){
+        echo '<pre>';
+        var_dump ($var);
+        echo '</pre>';
+    }
+
+    debbug($_SERVER);
+    
+    //afficher à chaque fois dans un paragraphe 
+    // adresse IP du server :
+    // nom du fichier exécuté :
+    // chemin du fichier exécuté :
+
+    debbug ($_SERVER);
+    separation();
+    echo "adresse ip du server :" . $_SERVER['SERVER_ADDR'];
+    separation();
+    echo "nom du fichier exécuté :" . $_SERVER['SCRIPT_NAME'];
+    separation();
+    echo "chemin du fichier exécuté :" . $_SERVER['SCRIPT_FILENAME'];
+
+
+    //$_GET :
+    var_dump($_GET); // $_GET contient les informations envoyées en paramètres dans l'URL
+
+    //-----------------------------------------------------
+    echo '<h2>Les inclusions du fichier </h2>';
+    //------------------------------------------------------
+
+    //en PHP il est possible d'inclure des fichiers dans d'autrs fichiers avec l'instruction require, include, include_once ou encore require_once (on utilise plutôt require_once en pratique)
+
+    // require 'inclus.php'; // le fichier est obligatoire pour le fonctionnement du site. Si le fichier n'est pas trouvé,, require génère une erreur fatale et stoppe l'éxécution du code
+
+    
+    // include 'inclus.php'; // le fichier est facultatif pour le fonctionnement du site. Si le fichier n'est pas trouvé,, require génère une erreur fatale et stoppe l'éxécution du code
+    
+    include './include.inc.php';
+    require './include.inc.php';
+
+    // le _once permet de vérifier si le fichier a déjà été inclus. Si c'est le cas, il ne le ré-inclut pas
+    // include_once './inclue.inc.php';
+    // include_once './inclue.inc.php';
+
+    
+    // 
+    include_once './include.inc.php';
+    require_once './include.inc.php';
+
+    
+    echo 'Je suis un message';
     ?>
 
 
