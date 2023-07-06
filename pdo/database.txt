@@ -1,0 +1,46 @@
+creer une base de données : pdo
+
+utiliser pdo
+
+créer  une table : manga
+    id int primary key auto_increment
+    title varchar
+    description text
+    price decimal (8,2)
+
+CREATE TABLE manga (
+    id int primary key auto_increment,
+    title varchar(255),
+    description text,
+    price decimal (8,2)
+    );
+   
+
+créer une table : user 
+    id int primary key auto-increment
+    pseudo varchar
+    password varchar
+    statut booleen
+
+    CREATE TABLE user (
+    id int primary key auto_increment,
+    pseudo varchar(255),
+    password varchar(255),
+    statut boolean
+    );
+
+insérer des données
+4 mangas différents
+2 user (1 statut true, 1 statut false)
+
+INSERT INTO manga (title,description,price)
+VALUES ('One Piece','Luffy va-t-il réussir à redonner le sourire aux habitants du pays des Wa et à libérer cette île qui a traversé de rudes épreuves au cours des vingt années de domination de Kaido et Orochi ?',6.99),
+('Dragon Ball','Dans un monde fantastique semblable à la Terre et peuplé de créatures plus étranges les unes que les autres, un petit garçon à la force herculéenne et doté d''une queue de singe croise un jour la route d''une jeune fille',10.95),
+('Death Note','Le dénouement est proche pour Light et Near qui vont enfin s''affronter ! Quelles stratégies ces deux esprits hors du commun ont-ils donc élaborées pour prendre le dessus sur leur adversaire ?', 7.10), 
+('Fullmetal Alchemist','Avec son subtil mélange d''action, d''humour, de suspense et de tragédie, Fullmetal Alchemist est le titre incontournable pour toute mangathèque',11.90);
+
+INSERT INTO user (pseudo,password,statut)
+VALUES ('andrea', 'logdb',1),('santiago', 'mdpshop',0);
+
+
+

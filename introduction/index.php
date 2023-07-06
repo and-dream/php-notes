@@ -223,7 +223,8 @@
 
     //-----------------------------------------------------
     echo '<h2>Les tableaux</h2>';
-    //----------------------------------------------------
+    //------------------------------------------------------
+
     // Un tableau de données ARRAY est déclaré comme une variable améliorée dans laquelle on stocke une multitude de valeurs. Ces valeurs peuvent être de n'importe quel type et possèdent un indice par défat dont la numérotation commence à 0.
 
     $liste = ['France', 'Italie', 'Espagne','Portugal'];
@@ -371,9 +372,9 @@
             echo $key . ' : ' . $criteria .'<br>';
         }
 
-       //-----------------------------------------------------
-       echo '<h2>Les fonctions prédéfinies</h2>';
-       //----------------------------------------------------  
+    //-----------------------------------------------------
+    echo '<h2>Les fonctions prédéfinies</h2>';
+    //----------------------------------------------------  
        
        echo substr('Bonjour, je m\'appelle Rachid. Je suis formateur', 0, 10) . '<br>';
        //extrait un bout de la chaîne de caractères
@@ -402,9 +403,9 @@
         //trim () supprime les espaces au début et à la fin de la chaîne de caractères
 
 
-        //-----------------------------------------------------
-       echo '<h2>Les fonctions utilisateurs</h2>';
-       //------------------------------------------------------
+    //-----------------------------------------------------
+    echo '<h2>Les fonctions utilisateurs</h2>';
+    //------------------------------------------------------
 
        //on déclare une fonction avec le mot clé function suivi du nom de la fonction puis d'une paire de parenthèses()
        // on décide de ce que fait la fonction
@@ -476,6 +477,38 @@
     //$_GET :
     var_dump($_GET); // $_GET contient les informations envoyées en paramètres dans l'URL
 
+    // $_POST
+    var_dump($_POST); // $_POST contient des informations envoyées en paramètres dans le corps de la requête HTTP
+
+
+    //-----------------------------------------------------
+    echo '<h3>Les sessions</h3>';
+    //------------------------------------------------------
+
+    //Une session permet de conserver des informations à travers le site. Ces informations sont stockés dans un fichier temporaire sur le serveur. Ce fichier est relié à un identifiant unique : le session_id. Ce fichier peut contenir des informations sensibles : il ne faut donc pas le laisser à la portée de tout le monde. C'est pour cela qu'il est stocké dans un dossier temporaire du serveur, inaccessible aux internautes.
+
+    // Pour accéder à la session, il faut commencer par la démarrer avec la fonction session_start()
+    // Doit être déclaré en premier avant même tout élément HTML
+    session_start();
+
+    //$_SESSION
+    var_dump($_SESSION);
+
+    // Ajouter des informations à la session
+    $_SESSION['pseudo'] = 'tintin';
+
+    // Supprimer des informations de la session
+    unset($_SESSION['pseudo']);
+
+    // Supprime le fichier de session du serveur
+    session_destroy();
+
+    // Vide le fichier de session sans le supprimer du serveur
+    session_unset();
+
+
+
+
     //-----------------------------------------------------
     echo '<h2>Les inclusions du fichier </h2>';
     //------------------------------------------------------
@@ -497,26 +530,57 @@
     
     // 
     include_once './include.inc.php';
-    require_once './include.inc.php';
-
-    
+    require_once './include.inc.php';  
     echo 'Je suis un message';
-    ?>
-
-
-
-
-
-     <!-- // echo <select name="annee">;
     
+    <!-- // echo <select name="annee">;
+        
     // $i= 1920;       
     // while ($i <= 2020){
-    //      $i++;
-    //      echo <option value="">$i</option>;  
-    // }
-   
-    // </select>  -->
+        //      $i++;
+        //      echo <option value="">$i</option>;  
+        // }
+        
+        // </select>  -->
+        
+    //-----------------------------------------------------
+    echo '<h2>Les objets </h2>';
+    //------------------------------------------------------
+        
+    //la classe est une boite vide qui sert à définir ce qu'on va mettre dans notre objet
+    // on va dire quelles méthodes (fonctions) et variables sont inhérentes à cette classe
+      
+    class Hero
+    {
+        public $pseudo = 'tintin'; // Propriété "pseudo"
+        public $vie = 100; // Propriété "vie"
 
+        public function regenerer() // Méthode "regenerer"
+        {
+            $this->vie = 100;
+        }
+
+    }
+
+    $hero = new Hero();
+    //on créé une instance de l'objet, s'il n'y avait pas new ce serait considéré comme une fonction
+    // on vient de créer un objet qui a les mêmes propriétés 
+
+    echo $hero-> pseudo;
+
+    // si j'ai besoin d'une deuxième instance de classe
+
+    $hero2 = new Hero();
+
+    // Un objet est un autre type de données
+    // Il représente un objet réel (par exemple : un produit, un personnage, un panier d'achat, et.)
+    // Un objet est déclaré à partir d'un plan de construction : la classe
+    // La classe est un plan général de l'objet
+    // L'objet est instancié à partir de la classe
+    // Chaque objet est différent, mais ils ont tous la même structure (les mêmes propriétés et les mêmes méthodes)
+        
+        
+?>
 </body>
 </html>
 
