@@ -37,23 +37,23 @@ require_once './src/config/bdd.php';
                 <input type="hidden" value="<?=$manga['id']; ?>" name="id">
 
                 <!-- ou on affiche le champ mais en le désactivant -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="id">id</label>
-                    <input type="text" id="id" disabled value="<?= $manga['id']  ?>" name="">
-                </div>
+                    <input type="text" id="id" disabled value="<?= $manga['id']  ?>" name="id">
+                </div> -->
 
                 
                 <div class="mb-3">
                     <label for="title" class="form-label">Titre</label>
-                    <input type="text" class="form-control" id="title" value="<?= $manga['title']; ?>" name="">
+                    <input type="text" class="form-control" id="title" value="<?= $manga['title']; ?>" name="title">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" name=""><?= $manga['description']; ?>"></textarea>
+                    <textarea class="form-control" id="description" name="description"><?= $manga['description']; ?>"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Prix</label>
-                    <input type="number" step="any" class="form-control" id="price" value="<?= $manga['price']; ?>">
+                    <input type="number" step="any" class="form-control" id="price" value="<?= $manga['price']; ?>" name="description">
                 </div>
                 <button type="submit" class="btn btn-primary">Modifier</button>
             </form>       
