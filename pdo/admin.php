@@ -15,7 +15,6 @@ $mangas = $stmt->fetchAll();
 // var_dump($mangas);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -44,8 +43,8 @@ $mangas = $stmt->fetchAll();
                     <tr>
                         <td><?= $manga['id'] ?></td>
                         <td><?= $manga['title'] ?></td>
-                        <td><a href="./update-manga.php?id=u">Modifier</a></td>
-                        <td><a href="delete-manga.php?id=d"></a>Supprimer</td>
+                        <td><a href="./update-manga.php?id=<?= $manga['id'];?>">Modifier</a></td> //on lui passe à chaque ligne un id
+                        <td><a href="./delete-manga.php?id=<?= $manga['id'];?>">Supprimer</a></td>
                     </tr>
                 <?php
                 }

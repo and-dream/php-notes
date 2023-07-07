@@ -12,10 +12,9 @@ if(isset($_POST)){
 
         $stmt = $pdo->prepare('SELECT * FROM user WHERE pseudo = :name AND password = :pwd');
         $stmt->execute(['name'=> $name, 'pwd'=> $password]);
-        $users = $stmt->fetch();
-        // var_dump($users);
+        $user = $stmt->fetch();
         //vérifier si l'utilisateur existe
-        if($users){
+        if($user){
             $_SESSION['admin'] = $user['statut'];
             header('Location:../../index.php');
             exit();

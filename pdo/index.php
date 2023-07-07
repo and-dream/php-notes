@@ -4,7 +4,7 @@ require_once './src/config/bdd.php';
 $res = $pdo->prepare("SELECT * FROM manga");
 $res->execute();
 $mangas = $res->fetchAll();
-// var_dump($mangas);
+session_start();
 ?>
 
 <!DOCTYPE html>
